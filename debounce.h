@@ -34,7 +34,7 @@ typedef struct
     uint16_t    longPressTime;
     uint16_t    doublePressGap;
     uint16_t    releaseCounter;
-    bool        wasPressedOnce;
+    uint8_t     pressCount;
     bool        longPressDetected;
     bool        isNowPressed;
 } button_contents_t;
