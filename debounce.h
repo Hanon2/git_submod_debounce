@@ -31,6 +31,7 @@ typedef struct
     uint16_t    debouncingTime;
     uint16_t    timerCounter;
     uint16_t    longPressTime;
+    bool        wasPressedOnce;
 } button_contents_t;
 
 
