@@ -22,7 +22,8 @@ typedef enum
     BS_PRESSED,
     BS_BOUNCING,
     BS_UNPRESSED,
-    BS_LONG_PRESSED
+    BS_LONG_PRESSED,
+    BS_DOUBLE_PRESSED
 } button_output_t;
 
 
@@ -31,8 +32,11 @@ typedef struct
     uint16_t    debouncingTime;
     uint16_t    timerCounter;
     uint16_t    longPressTime;
+    uint16_t    doublePressGap;
+    uint16_t    releaseCounter;
     bool        wasPressedOnce;
     bool        longPressDetected;
+    bool        isNowPressed;
 } button_contents_t;
 
 

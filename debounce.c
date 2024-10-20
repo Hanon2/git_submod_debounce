@@ -5,6 +5,8 @@ button_output_t handleButton(button_contents_t* self,
 {
     if (self->timerCounter>=32767)
         self->timerCounter--;
+    if (self->releaseCounter>=32767)
+        self->releaseCounter--;
     if (isPressed)
     {
 
@@ -26,9 +28,15 @@ button_output_t handleButton(button_contents_t* self,
     {
         if (self->wasPressedOnce && !self->longPressDetected)
         {
-            self->wasPressedOnce = false;
-            self->timerCounter = 0;
-            return BS_PRESSED;
+            self->releaseCounter++;
+            if (self->releaseCounter>=self->doublePressGap)
+            {
+                self->releaseCounter = 0;
+                self->wasPressedOnce = false;
+                self->timerCounter = 0;
+                return BS_PRESSED;
+            }
+            return BS_BOUNCING;
         }
         else
         {
