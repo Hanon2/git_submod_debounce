@@ -32,6 +32,7 @@ typedef struct
     uint16_t    timerCounter;
     uint16_t    longPressTime;
     bool        wasPressedOnce;
+    bool        longPressDetected;
 } button_contents_t;
 
 
