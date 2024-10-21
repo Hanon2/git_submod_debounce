@@ -21,7 +21,11 @@ button_output_t handleButton(button_contents_t* self,
             return BS_LONG_PRESSED;
 
         else if (self->timerCounter>=self->debouncingTime)
+        {
             self->pressCount++;
+            return BS_BOUNCING;
+        }
+
 
         else
             return BS_BOUNCING;
